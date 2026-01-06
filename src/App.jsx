@@ -92,7 +92,7 @@ export default function LogisticsLanding() {
                 <Truck className="text-white" size={28} />
               </div>
               <div>
-                <span className="text-2xl font-bold text-gray-900">GlobalFreight</span>
+                <span className="text-2xl font-bold text-gray-900">Prime Logistics</span>
                 <p className="text-xs text-gray-500">Logistics Solutions</p>
               </div>
             </div>
@@ -137,18 +137,18 @@ export default function LogisticsLanding() {
             <div className="space-y-8">
               <div className="inline-block">
                 <span className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full text-sm font-semibold border border-blue-500/30">
-                  🌍 Operating in 25+ Countries
+                  🌍 Operating in 10+ Countries
                 </span>
               </div>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
                 Your Trusted
                 <span className="block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  Global Logistics
+                  Prime Logistics
                 </span>
                 Partner
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
-                Premium freight forwarding and logistics solutions with modern Euro 6 compliant fleet. Delivering excellence across international borders.
+                Premium freight forwarding and logistics solutions with modern Euro 6 and 7 compliant fleet. Delivering excellence across international borders.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button onClick={() => scrollToSection('contact')} className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl transition transform hover:scale-105 flex items-center justify-center group">
@@ -239,7 +239,7 @@ export default function LogisticsLanding() {
                   <p className="text-gray-200 mb-4">Latest Generation Trucks</p>
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-                      <p className="text-cyan-400 font-bold text-lg">480 HP</p>
+                      <p className="text-cyan-400 font-bold text-lg">510 HP</p>
                       <p className="text-gray-300">Engine Power</p>
                     </div>
                     <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
@@ -251,7 +251,7 @@ export default function LogisticsLanding() {
                       <p className="text-gray-300">Real-Time</p>
                     </div>
                     <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-                      <p className="text-cyan-400 font-bold text-lg">Euro 6</p>
+                      <p className="text-cyan-400 font-bold text-lg">Euro 7</p>
                       <p className="text-gray-300">Compliant</p>
                     </div>
                   </div>
@@ -261,9 +261,9 @@ export default function LogisticsLanding() {
             
             <div className="space-y-6 order-1 lg:order-2">
               <span className="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Modern Fleet</span>
-              <h2 className="text-4xl lg:text-5xl font-bold">Premium DAF Euro 6 Trucks</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold">Premium DAF Euro 7 Trucks</h2>
               <p className="text-xl text-gray-300 leading-relaxed">
-                Our fleet consists of the latest DAF XF Euro 6 trucks, combining power, efficiency, and environmental responsibility. Each vehicle is equipped with advanced technology for your cargo's safety.
+                Our fleet consists of the latest DAF XF Euro 7 trucks, combining power, efficiency, and environmental responsibility. Each vehicle is equipped with advanced technology for your cargo's safety.
               </p>
               
               <div className="space-y-4 pt-4">
@@ -327,8 +327,8 @@ export default function LogisticsLanding() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 text-lg">Email</p>
-                    <p className="text-gray-600">info@globalfreight.com</p>
-                    <p className="text-gray-600">sales@globalfreight.com</p>
+                    <p className="text-gray-600">info@primelogistics.com</p>
+                    <p className="text-gray-600">sales@primelogistics.com</p>
                   </div>
                 </div>
                 
@@ -338,8 +338,8 @@ export default function LogisticsLanding() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 text-lg">24/7 Support Hotline</p>
-                    <p className="text-gray-600">+1 (800) 555-FREIGHT</p>
-                    <p className="text-gray-600">+44 20 7946 0958 (UK)</p>
+                    <p className="text-gray-600">0111-FREIGHT</p>
+                    <p className="text-gray-600">+998 ** *** ** ** (UZ)</p>
                   </div>
                 </div>
                 
@@ -349,8 +349,8 @@ export default function LogisticsLanding() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 text-lg">Headquarters</p>
-                    <p className="text-gray-600">Rotterdam Port Area</p>
-                    <p className="text-gray-600">The Netherlands, Europe</p>
+                    <p className="text-gray-600">Tashkent</p>
+                    <p className="text-gray-600">Uzbekistan, Central Asia</p>
                   </div>
                 </div>
               </div>
@@ -358,7 +358,7 @@ export default function LogisticsLanding() {
               <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-4">Why Choose Us?</h3>
                 <ul className="space-y-3">
-                  <li className="flex items-center"><CheckCircle className="mr-3 flex-shrink-0" size={20} /> ISO 9001:2015 Certified</li>
+                  <li className="flex items-center"><CheckCircle className="mr-3 flex-shrink-0" size={20} /> ISO 9001:2017 Certified</li>
                   <li className="flex items-center"><CheckCircle className="mr-3 flex-shrink-0" size={20} /> 99.8% On-Time Delivery Rate</li>
                   <li className="flex items-center"><CheckCircle className="mr-3 flex-shrink-0" size={20} /> Full Cargo Insurance Coverage</li>
                   <li className="flex items-center"><CheckCircle className="mr-3 flex-shrink-0" size={20} /> Real-Time Shipment Tracking</li>
@@ -399,7 +399,7 @@ export default function LogisticsLanding() {
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+998 90 123 45 67"
                   />
                 </div>
 
@@ -467,9 +467,9 @@ export default function LogisticsLanding() {
                 <div className="bg-gradient-to-br from-blue-500 to-cyan-500 p-2 rounded-lg">
                   <Truck className="text-white" size={24} />
                 </div>
-                <span className="text-xl font-bold">GlobalFreight</span>
+                <span className="text-xl font-bold">Prime Logistics</span>
               </div>
-              <p className="text-gray-400">Your trusted partner in international logistics since 1995.</p>
+              <p className="text-gray-400">Your trusted partner in international logistics since 2017.</p>
             </div>
             
             <div>
@@ -504,7 +504,7 @@ export default function LogisticsLanding() {
           </div>
           
           <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-            <p>© 2026 GlobalFreight Logistics Solutions. All rights reserved. | ISO 9001:2015 Certified</p>
+            <p>© 2026 Prime Logistics Solutions. All rights reserved. | ISO 9001:2017 Certified</p>
           </div>
         </div>
       </footer>
