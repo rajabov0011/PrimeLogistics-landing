@@ -1,4 +1,4 @@
-# 🚚 GlobalFreight - Premium Logistics Landing Page
+# 🚚 Prime Logistics - Premium Logistics Landing Page
 
 Modern and professional landing page for a logistics company. International freight forwarding services with DAF Euro 6 trucks.
 
