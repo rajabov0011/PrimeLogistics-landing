@@ -170,9 +170,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📧 Contact
 
 For any inquiries or support, please reach out:
-- **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- **Portfolio**: [Your Website](https://yourwebsite.com)
+- **Email**: [Asadbek Rajabov](https://www.mail.ru/rajabov_1999@list.ru)
+- **LinkedIn**: [Asadbek Rajabov](https://www.linkedin.com/in/asadbek-rajabov-8991332b7/)
+- **Portfolio**: [Prime Logistics](https://prime-logistics-landing.vercel.app/)
 
 ---
 
