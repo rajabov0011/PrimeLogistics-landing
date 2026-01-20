@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Screen</title>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v3 CDN (compatible with html2canvas) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Iconify Icons -->
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+
+  <script>
+    // Tailwind v3 configuration with custom theme colors
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            card: {
+              DEFAULT: 'var(--card)',
+              foreground: 'var(--card-foreground)',
+            },
+            popover: {
+              DEFAULT: 'var(--popover)',
+              foreground: 'var(--popover-foreground)',
+            },
+            primary: {
+              DEFAULT: 'var(--primary)',
+              foreground: 'var(--primary-foreground)',
+            },
+            secondary: {
+              DEFAULT: 'var(--secondary)',
+              foreground: 'var(--secondary-foreground)',
+            },
+            muted: {
+              DEFAULT: 'var(--muted)',
+              foreground: 'var(--muted-foreground)',
+            },
+            accent: {
+              DEFAULT: 'var(--accent)',
+              foreground: 'var(--accent-foreground)',
+            },
+            destructive: {
+              DEFAULT: 'var(--destructive)',
+              foreground: '#ffffff',
+            },
+            border: 'var(--border)',
+            input: 'var(--input)',
+            ring: 'var(--ring)',
+            chart: {
+              1: 'var(--chart-1)',
+              2: 'var(--chart-2)',
+              3: 'var(--chart-3)',
+              4: 'var(--chart-4)',
+              5: 'var(--chart-5)',
+            },
+          },
+          fontFamily: {
+            sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+            heading: ['var(--font-heading)', 'system-ui', 'sans-serif'],
+            serif: ['var(--font-serif)', 'Georgia', 'serif'],
+            mono: ['var(--font-mono)', 'monospace'],
+          },
+          borderRadius: {
+            sm: 'calc(var(--radius) - 4px)',
+            md: 'calc(var(--radius) - 2px)',
+            lg: 'var(--radius)',
+            xl: 'calc(var(--radius) + 4px)',
+            '2xl': 'calc(var(--radius) + 8px)',
+            '3xl': 'calc(var(--radius) + 12px)',
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* CSS Custom Properties - Theme Values */
+    :root {
+      --background: #0f172a;
+      --foreground: #f8fafc;
+
+      --card: #1e293b;
+      --card-foreground: #ffffff;
+
+      --popover: #1e293b;
+      --popover-foreground: #ffffff;
+
+      --primary: #06b6d4;
+      --primary-foreground: #ffffff;
+
+      --secondary: #334155;
+      --secondary-foreground: #cbd5e1;
+
+      --muted: #1e293b;
+      --muted-foreground: #94a3b8;
+
+      --accent: #0ea5e9;
+      --accent-foreground: #ffffff;
+
+      --destructive: #ef4444;
+
+      --border: #334155;
+      --input: #334155;
+      --ring: #06b6d4;
+
+      --radius: 16px;
+
+      --chart-1: #0ea5e9;
+      --chart-2: #06b6d4;
+      --chart-3: #3b82f6;
+      --chart-4: #6366f1;
+      --chart-5: #10b981;
+
+      --font-sans: "Inter", system-ui, sans-serif;
+      --font-heading: "Manrope", system-ui, sans-serif;
+      --font-serif: "Playfair Display", Georgia, serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+
+    /* Apply base font */
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--background);
+      color: var(--foreground);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Safe area utilities for mobile */
+    .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+    .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    .pl-safe { padding-left: env(safe-area-inset-left, 0px); }
+    .pr-safe { padding-right: env(safe-area-inset-right, 0px); }
+
+    /* Hide scrollbar but allow scrolling */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Smooth transitions for interactive elements */
+    button, a, [role="button"] {
+      transition: all 0.15s ease;
+    }
+
+    /* Better image rendering */
+    img {
+      image-rendering: -webkit-optimize-contrast;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-background text-foreground min-h-screen font-sans relative overflow-hidden pb-32 selection:bg-primary/30">
+
+    <!-- Decorative Background Mesh -->
+    <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+    <div class="absolute bottom-20 left-0 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
+
+    <!-- Header -->
+    <header class="flex justify-between items-center px-6 pt-12 pb-4">
+        <button class="relative p-2 rounded-full bg-card border border-border/50 text-foreground hover:bg-secondary/50 transition-colors">
+            <iconify-icon icon="lucide:arrow-left" width="20" height="20"></iconify-icon>
+        </button>
+        <h1 class="text-sm font-bold text-foreground">Shipment #TRK-8942</h1>
+        <button class="relative p-2 rounded-full bg-card border border-border/50 text-foreground hover:bg-secondary/50 transition-colors">
+            <iconify-icon icon="lucide:share-2" width="20" height="20"></iconify-icon>
+        </button>
+    </header>
+
+    <!-- Main Content Scroll -->
+    <main class="px-4 space-y-6">
+        
+        <!-- Hero Image with Status -->
+        <div class="relative w-full h-[280px] rounded-[32px] overflow-hidden shadow-2xl shadow-black/40 group">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop" alt="DAF Euro 7 Truck" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/90"></div>
+            
+            <!-- Live Status Pill -->
+            <div class="absolute top-4 left-4">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/40 backdrop-blur-md border border-white/10 shadow-lg">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-[10px] font-bold tracking-wide text-white uppercase">In Transit</span>
+                </div>
+            </div>
+
+            <!-- Vehicle Info -->
+            <div class="absolute bottom-6 left-6 right-6">
+                <h2 class="text-2xl font-heading font-bold text-white leading-tight mb-1">DAF XG+ 530</h2>
+                <p class="text-xs text-white/70 font-medium">Fleet ID: FL-882 • Driver: M. Schmidt</p>
+            </div>
+        </div>
+
+        <!-- Statistics Grid -->
+        <div class="grid grid-cols-3 gap-3">
+            <div class="bg-card/50 backdrop-blur-sm p-3 rounded-2xl border border-border/30 flex flex-col items-center justify-center gap-2 text-center">
+                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <iconify-icon icon="lucide:weight" width="16" height="16"></iconify-icon>
+                </div>
+                <div>
+                    <span class="block text-sm font-bold text-foreground">24t</span>
+                    <span class="text-[10px] text-muted-foreground uppercase tracking-wider">Load</span>
+                </div>
+            </div>
+            <div class="bg-card/50 backdrop-blur-sm p-3 rounded-2xl border border-border/30 flex flex-col items-center justify-center gap-2 text-center">
+                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                    <iconify-icon icon="lucide:route" width="16" height="16"></iconify-icon>
+                </div>
+                <div>
+                    <span class="block text-sm font-bold text-foreground">842km</span>
+                    <span class="text-[10px] text-muted-foreground uppercase tracking-wider">Distance</span>
+                </div>
+            </div>
+            <div class="bg-card/50 backdrop-blur-sm p-3 rounded-2xl border border-border/30 flex flex-col items-center justify-center gap-2 text-center">
+                <div class="w-8 h-8 rounded-full bg-chart-4/10 flex items-center justify-center text-chart-4">
+                    <iconify-icon icon="lucide:clock" width="16" height="16"></iconify-icon>
+                </div>
+                <div>
+                    <span class="block text-sm font-bold text-foreground">4h 20m</span>
+                    <span class="text-[10px] text-muted-foreground uppercase tracking-wider">ETA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Route Timeline -->
+        <div class="bg-card p-6 rounded-[24px] border border-border/40 relative overflow-hidden">
+            <h3 class="text-base font-bold text-foreground mb-6">Shipment Timeline</h3>
+            
+            <div class="relative pl-2 ml-2 space-y-8 border-l border-dashed border-primary/20">
+                
+                <!-- Origin -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-muted-foreground ring-4 ring-card"></div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-sm font-bold text-muted-foreground">Hamburg, DE</h4>
+                            <p class="text-[10px] text-muted-foreground">Departure: 06:00 AM</p>
+                        </div>
+                        <span class="text-[10px] font-bold text-muted-foreground bg-secondary px-2 py-0.5 rounded">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Refueling -->
+                <div class="relative pl-6 group cursor-pointer">
+                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-muted-foreground ring-4 ring-card"></div>
+                    <div class="bg-secondary/20 p-3 rounded-xl border border-border/30 hover:bg-secondary/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-1.5 bg-accent/10 rounded-lg text-accent">
+                                <iconify-icon icon="lucide:fuel" width="16" height="16"></iconify-icon>
+                            </div>
+                            <span class="text-sm font-semibold text-foreground">Refueling Stop</span>
+                        </div>
+                        <p class="text-xs text-muted-foreground">Shell Station, Hanover • 45 mins</p>
+                    </div>
+                </div>
+
+                <!-- Current Location -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center animate-pulse">
+                        <div class="w-2 h-2 bg-primary rounded-full"></div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-sm font-bold text-foreground">Frankfurt, DE</h4>
+                            <p class="text-[10px] text-primary font-medium">Current Location</p>
+                        </div>
+                        <span class="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">Live</span>
+                    </div>
+                </div>
+
+                <!-- Step 2: Customs -->
+                <div class="relative pl-6 group cursor-pointer">
+                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-muted-foreground/30 ring-4 ring-card"></div>
+                    <div class="bg-secondary/20 p-3 rounded-xl border border-border/30 hover:bg-secondary/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-1.5 bg-chart-2/10 rounded-lg text-chart-2">
+                                <iconify-icon icon="lucide:file-check" width="16" height="16"></iconify-icon>
+                            </div>
+                            <span class="text-sm font-semibold text-foreground">Customs Clearance</span>
+                        </div>
+                        <p class="text-xs text-muted-foreground">Border Crossing • Est. 1h 30m</p>
+                    </div>
+                </div>
+
+                <!-- Destination -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full border-2 border-primary bg-card ring-4 ring-card"></div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-sm font-bold text-foreground">Munich, DE</h4>
+                            <p class="text-[10px] text-muted-foreground">Est. Arrival: 16:20 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Route Conditions -->
+        <div class="bg-card p-4 rounded-[24px] border border-border/40 relative overflow-hidden flex gap-4">
+            <div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=400&auto=format&fit=crop" alt="Map" class="w-full h-full object-cover grayscale opacity-60">
+                <div class="absolute inset-0 bg-primary/10"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-8 h-8 bg-background/80 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-lg">
+                        <iconify-icon icon="lucide:navigation" width="16" height="16"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center flex-1">
+                <h4 class="text-sm font-bold text-foreground mb-1">Route Conditions</h4>
+                <div class="flex items-center gap-2 mb-2">
+                    <iconify-icon icon="lucide:cloud-rain" class="text-primary" width="14" height="14"></iconify-icon>
+                    <span class="text-xs text-muted-foreground">Light Rain • 12°C</span>
+                </div>
+                <div class="inline-flex items-center gap-1">
+                    <span class="text-[10px] text-accent font-medium">Low Traffic</span>
+                    <iconify-icon icon="lucide:thumbs-up" class="text-accent" width="10" height="10"></iconify-icon>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Floating Quote Button (Sticky Footer Area) -->
+    <div class="fixed bottom-24 left-6 right-6 z-40">
+        <button class="w-full h-12 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold text-sm shadow-xl shadow-primary/25 flex items-center justify-center gap-2 hover:opacity-95 transition-opacity">
+            <span>Request Detailed Quote</span>
+            <iconify-icon icon="lucide:arrow-right" width="18" height="18"></iconify-icon>
+        </button>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-xl border-t border-white/5 pb-8 pt-4 px-6 z-50">
+        <div class="flex justify-between items-center max-w-md mx-auto">
+            <!-- Tab 0: Home (Inactive) -->
+            <button class="flex flex-col items-center gap-1 group">
+                <div class="p-2 rounded-xl transition-all duration-300 group-hover:bg-muted">
+                    <iconify-icon icon="lucide:layout-dashboard" class="text-muted-foreground group-hover:text-foreground transition-colors" width="24" height="24"></iconify-icon>
+                </div>
+                <span class="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">Home</span>
+            </button>
+
+            <!-- Tab 1: Track (Active) -->
+            <button class="flex flex-col items-center gap-1 group">
+                <div class="relative p-2 rounded-xl transition-all duration-300 bg-primary/15">
+                    <iconify-icon icon="lucide:map" class="text-primary transition-colors" width="24" height="24"></iconify-icon>
+                    <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></div>
+                </div>
+                <span class="text-[10px] font-semibold text-primary">Track</span>
+            </button>
+
+            <!-- Tab 2: Fleet (Inactive) -->
+            <button class="flex flex-col items-center gap-1 group">
+                <div class="p-2 rounded-xl transition-all duration-300 group-hover:bg-muted">
+                    <iconify-icon icon="lucide:truck" class="text-muted-foreground group-hover:text-foreground transition-colors" width="24" height="24"></iconify-icon>
+                </div>
+                <span class="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">Fleet</span>
+            </button>
+
+            <!-- Tab 3: Profile (Inactive) -->
+            <button class="flex flex-col items-center gap-1 group">
+                <div class="p-2 rounded-xl transition-all duration-300 group-hover:bg-muted">
+                    <iconify-icon icon="lucide:user" class="text-muted-foreground group-hover:text-foreground transition-colors" width="24" height="24"></iconify-icon>
+                </div>
+                <span class="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">Profile</span>
+            </button>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

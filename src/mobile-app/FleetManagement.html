@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Screen</title>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v3 CDN (compatible with html2canvas) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Iconify Icons -->
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+
+  <script>
+    // Tailwind v3 configuration with custom theme colors
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            card: {
+              DEFAULT: 'var(--card)',
+              foreground: 'var(--card-foreground)',
+            },
+            popover: {
+              DEFAULT: 'var(--popover)',
+              foreground: 'var(--popover-foreground)',
+            },
+            primary: {
+              DEFAULT: 'var(--primary)',
+              foreground: 'var(--primary-foreground)',
+            },
+            secondary: {
+              DEFAULT: 'var(--secondary)',
+              foreground: 'var(--secondary-foreground)',
+            },
+            muted: {
+              DEFAULT: 'var(--muted)',
+              foreground: 'var(--muted-foreground)',
+            },
+            accent: {
+              DEFAULT: 'var(--accent)',
+              foreground: 'var(--accent-foreground)',
+            },
+            destructive: {
+              DEFAULT: 'var(--destructive)',
+              foreground: '#ffffff',
+            },
+            border: 'var(--border)',
+            input: 'var(--input)',
+            ring: 'var(--ring)',
+            chart: {
+              1: 'var(--chart-1)',
+              2: 'var(--chart-2)',
+              3: 'var(--chart-3)',
+              4: 'var(--chart-4)',
+              5: 'var(--chart-5)',
+            },
+          },
+          fontFamily: {
+            sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+            heading: ['var(--font-heading)', 'system-ui', 'sans-serif'],
+            serif: ['var(--font-serif)', 'Georgia', 'serif'],
+            mono: ['var(--font-mono)', 'monospace'],
+          },
+          borderRadius: {
+            sm: 'calc(var(--radius) - 4px)',
+            md: 'calc(var(--radius) - 2px)',
+            lg: 'var(--radius)',
+            xl: 'calc(var(--radius) + 4px)',
+            '2xl': 'calc(var(--radius) + 8px)',
+            '3xl': 'calc(var(--radius) + 12px)',
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* CSS Custom Properties - Theme Values */
+    :root {
+      --background: #0f172a;
+      --foreground: #f8fafc;
+
+      --card: #1e293b;
+      --card-foreground: #ffffff;
+
+      --popover: #1e293b;
+      --popover-foreground: #ffffff;
+
+      --primary: #06b6d4;
+      --primary-foreground: #ffffff;
+
+      --secondary: #334155;
+      --secondary-foreground: #cbd5e1;
+
+      --muted: #1e293b;
+      --muted-foreground: #94a3b8;
+
+      --accent: #0ea5e9;
+      --accent-foreground: #ffffff;
+
+      --destructive: #ef4444;
+
+      --border: #334155;
+      --input: #334155;
+      --ring: #06b6d4;
+
+      --radius: 16px;
+
+      --chart-1: #0ea5e9;
+      --chart-2: #06b6d4;
+      --chart-3: #3b82f6;
+      --chart-4: #6366f1;
+      --chart-5: #10b981;
+
+      --font-sans: "Inter", system-ui, sans-serif;
+      --font-heading: "Manrope", system-ui, sans-serif;
+      --font-serif: "Playfair Display", Georgia, serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+
+    /* Apply base font */
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--background);
+      color: var(--foreground);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Safe area utilities for mobile */
+    .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+    .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    .pl-safe { padding-left: env(safe-area-inset-left, 0px); }
+    .pr-safe { padding-right: env(safe-area-inset-right, 0px); }
+
+    /* Hide scrollbar but allow scrolling */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Smooth transitions for interactive elements */
+    button, a, [role="button"] {
+      transition: all 0.15s ease;
+    }
+
+    /* Better image rendering */
+    img {
+      image-rendering: -webkit-optimize-contrast;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-background text-foreground min-h-screen font-sans relative overflow-hidden pb-24 selection:bg-primary/30">
+
+    <!-- Decorative Background Mesh -->
+    <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
+
+    <!-- Header (Copied from Reference) -->
+    <header class="flex justify-between items-center px-6 pt-12 pb-4">
+        <div class="flex items-center gap-3">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" alt="User" class="w-10 h-10 rounded-full border-2 border-border object-cover">
+                <div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-background"></div>
+            </div>
+            <div>
+                <p class="text-xs text-muted-foreground font-medium">Logistics Manager</p>
+                <h1 class="text-sm font-bold text-foreground">Alex Morgan</h1>
+            </div>
+        </div>
+        <button class="relative p-2 rounded-full bg-card border border-border/50 text-foreground hover:bg-secondary/50 transition-colors">
+            <iconify-icon icon="lucide:bell" width="20" height="20"></iconify-icon>
+            <span class="absolute top-2 right-2.5 w-2 h-2 bg-destructive rounded-full border border-card"></span>
+        </button>
+    </header>
+
+    <!-- Page Title & Filters -->
+    <div class="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-white/5 pt-2 pb-4">
+        <div class="px-6 mb-4">
+            <h2 class="text-2xl font-heading font-bold text-foreground">Fleet Assets</h2>
+            <p class="text-xs text-muted-foreground mt-1">Manage your vehicle inventory</p>
+        </div>
+        
+        <!-- Filter Chips -->
+        <div class="flex overflow-x-auto gap-3 px-6 pb-2 scrollbar-hide">
+            <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-xs font-bold shadow-lg shadow-primary/25 whitespace-nowrap">
+                <iconify-icon icon="lucide:truck" width="14" height="14"></iconify-icon>
+                Trucks
+            </button>
+            <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 text-muted-foreground text-xs font-bold whitespace-nowrap hover:bg-secondary transition-colors">
+                <iconify-icon icon="lucide:plane" width="14" height="14"></iconify-icon>
+                Air Freight
+            </button>
+            <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 text-muted-foreground text-xs font-bold whitespace-nowrap hover:bg-secondary transition-colors">
+                <iconify-icon icon="lucide:ship" width="14" height="14"></iconify-icon>
+                Sea Cargo
+            </button>
+            <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 text-muted-foreground text-xs font-bold whitespace-nowrap hover:bg-secondary transition-colors">
+                <iconify-icon icon="lucide:container" width="14" height="14"></iconify-icon>
+                Containers
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content: Asset Grid -->
+    <div class="px-4 mt-6 grid gap-6">
+        
+        <!-- Asset Card 1 -->
+        <div class="group relative bg-card rounded-[32px] overflow-hidden border border-border/40 shadow-xl shadow-black/20">
+            <!-- Image Area -->
+            <div class="h-[200px] w-full relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop" alt="Heavy Duty Semi" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
+                
+                <!-- Status Badge -->
+                <div class="absolute top-4 right-4">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/20 backdrop-blur-md border border-green-500/30">
+                        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-[10px] font-bold text-green-500 uppercase tracking-wide">Available</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-6 pt-0 relative">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-foreground">Volvo FH16</h3>
+                        <p class="text-sm text-muted-foreground">Heavy Duty Transport</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-secondary/50 flex items-center justify-center text-primary border border-white/5">
+                        <iconify-icon icon="lucide:more-horizontal" width="20" height="20"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Specs Grid -->
+                <div class="grid grid-cols-3 gap-3 mb-6">
+                    <div class="bg-secondary/30 rounded-2xl p-3 border border-border/20 flex flex-col items-center justify-center text-center gap-1">
+                        <iconify-icon icon="lucide:weight" class="text-primary/70" width="16" height="16"></iconify-icon>
+                        <span class="text-[10px] text-muted-foreground font-medium uppercase">Payload</span>
+                        <span class="text-xs font-bold text-foreground">24 Ton</span>
+                    </div>
+                    <div class="bg-secondary/30 rounded-2xl p-3 border border-border/20 flex flex-col items-center justify-center text-center gap-1">
+                        <iconify-icon icon="lucide:fuel" class="text-primary/70" width="16" height="16"></iconify-icon>
+                        <span class="text-[10px] text-muted-foreground font-medium uppercase">Range</span>
+                        <span class="text-xs font-bold text-foreground">1200 km</span>
+                    </div>
+                    <div class="bg-secondary/30 rounded-2xl p-3 border border-border/20 flex flex-col items-center justify-center text-center gap-1">
+                        <iconify-icon icon="lucide:gauge" class="text-primary/70" width="16" height="16"></iconify-icon>
+                        <span class="text-[10px] text-muted-foreground font-medium uppercase">Mileage</span>
+                        <span class="text-xs font-bold text-foreground">45k</span>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <button class="w-full py-3 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-primary font-bold text-sm hover:bg-primary/20 transition-colors flex items-center justify-center gap-2">
+                    <iconify-icon icon="lucide:calendar-check" width="16" height="16"></iconify-icon>
+                    Schedule Maintenance
+                </button>
+            </div>
+        </div>
+
+        <!-- Asset Card 2 -->
+        <div class="group relative bg-card rounded-[32px] overflow-hidden border border-border/40 shadow-xl shadow-black/20">
+            <!-- Image Area -->
+            <div class="h-[200px] w-full relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=800&auto=format&fit=crop" alt="Delivery Van" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
+                
+                <!-- Status Badge -->
+                <div class="absolute top-4 right-4">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-500/30">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                        <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wide">In Transit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-6 pt-0 relative">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-foreground">Mercedes Sprinter</h3>
+                        <p class="text-sm text-muted-foreground">Urban Delivery Unit</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-secondary/50 flex items-center justify-center text-primary border border-white/5">
+                        <iconify-icon icon="lucide:more-horizontal" width="20" height="20"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Specs Grid -->
+                <div class="grid grid-cols-3 gap-3 mb-6">
+                    <div class="bg-secondary/30 rounded-2xl p-3 border border-border/20 flex flex-col items-center justify-center text-center gap-1">
+                        <iconify-icon icon="lucide:box" class="text-primary/70" width="16" height="16"></iconify-icon>
+                        <span class="text-[10px] text-muted-foreground font-medium uppercase">Payload</span>
+                        <span class="text-xs font-bold text-foreground">1.8 Ton</span>
+                    </div>
+                    <div class="bg-secondary/30 rounded-2xl p-3 border border-border/20 flex flex-col items-center justify-center text-center gap-1">
+                        <iconify-icon icon="lucide:map-pin" class="text-primary/70" width="16" height="16"></iconify-icon>
+                        <span class="text-[10px] text-muted-foreground font-medium uppercase">Zone</span>
+                        <span class="text-xs font-bold text-foreground">Metro</span>
+                    </div>
+                    <div class="bg-secondary/30 rounded-2xl p-3 border border-border/20 flex flex-col items-center justify-center text-center gap-1">
+                        <iconify-icon icon="lucide:battery-charging" class="text-primary/70" width="16" height="16"></iconify-icon>
+                        <span class="text-[10px] text-muted-foreground font-medium uppercase">Status</span>
+                        <span class="text-xs font-bold text-foreground">Active</span>
+                    </div>
+                </div>
+                
+                 <!-- Action Button -->
+                <button class="w-full py-3 rounded-xl bg-secondary/50 border border-border/50 text-foreground font-bold text-sm hover:bg-secondary transition-colors flex items-center justify-center gap-2">
+                    <iconify-icon icon="lucide:map" width="16" height="16"></iconify-icon>
+                    View Live Location
+                </button>
+            </div>
+        </div>
+        
+        <!-- Spacer for bottom nav/FAB -->
+        <div class="h-8"></div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fixed bottom-[110px] right-6 w-14 h-14 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg shadow-primary/30 flex items-center justify-center text-primary-foreground z-40 transition-transform active:scale-95 hover:scale-105 border border-white/10">
+        <iconify-icon icon="lucide:plus" width="28" height="28"></iconify-icon>
+    </button>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-xl border-t border-white/5 pb-8 pt-4 px-6 z-50">
+        <div class="flex justify-between items-center max-w-md mx-auto">
+            <!-- Tab 0: Home -->
+            <button class="flex flex-col items-center gap-1 group">
+                <div class="p-2 rounded-xl transition-all duration-300 group-hover:bg-muted">
+                    <iconify-icon icon="lucide:layout-dashboard" class="text-muted-foreground group-hover:text-foreground transition-colors" width="24" height="24"></iconify-icon>
+                </div>
+                <span class="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">Home</span>
+            </button>
+
+            <!-- Tab 1: Track -->
+            <button class="flex flex-col items-center gap-1 group">
+                <div class="p-2 rounded-xl transition-all duration-300 group-hover:bg-muted">
+                    <iconify-icon icon="lucide:map" class="text-muted-foreground group-hover:text-foreground transition-colors" width="24" height="24"></iconify-icon>
+                </div>
+                <span class="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">Track</span>
+            </button>
+
+            <!-- Tab 2: Fleet (Active) -->
+            <button class="flex flex-col items-center gap-1 group">
+                <div class="relative p-2 rounded-xl transition-all duration-300 bg-primary/15">
+                    <iconify-icon icon="lucide:truck" class="text-primary transition-colors" width="24" height="24"></iconify-icon>
+                    <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></div>
+                </div>
+                <span class="text-[10px] font-semibold text-primary">Fleet</span>
+            </button>
+
+            <!-- Tab 3: Profile -->
+            <button class="flex flex-col items-center gap-1 group">
+                <div class="p-2 rounded-xl transition-all duration-300 group-hover:bg-muted">
+                    <iconify-icon icon="lucide:user" class="text-muted-foreground group-hover:text-foreground transition-colors" width="24" height="24"></iconify-icon>
+                </div>
+                <span class="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">Profile</span>
+            </button>
+        </div>
+    </nav>
+</div>
+</body>
+</html>
